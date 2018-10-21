@@ -4,8 +4,10 @@
 
 [![CircleCI](https://circleci.com/gh/FlyingUZI/teamproject2/tree/master.svg?style=svg)](https://circleci.com/gh/FlyingUZI/teamproject2/tree/master)
 
-- django 
-- postgresql
-- docker
-- circle ci
-- heroku
+## locl development
+
+1. docker-compose up
+
+1. docker run python manage.py makemigrations
+
+1. docker run python manage.py migrate
