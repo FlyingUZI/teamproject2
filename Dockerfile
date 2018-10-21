@@ -1,10 +1,10 @@
 FROM python:3.6-alpine
 ENV PYTHONUNBUFFERED 1
 # Creating working directory
-ADD requirements.txt /requirements.txt
 RUN mkdir /application
 WORKDIR /application
 # Copying requirements
+ADD requirements.txt /application
 COPY ./application/ .
 RUN apk add --no-cache --virtual .build-deps \
     ca-certificates gcc postgresql-dev linux-headers musl-dev \
