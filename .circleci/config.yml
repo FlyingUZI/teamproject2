@@ -31,7 +31,10 @@ jobs:
             docker push registry.heroku.com/${HEROKU_APP_NAME}/web
       - run:
           name: heroku db migrate
-          command: heroku run rails db:migrate --app ${HEROKU_APP_NAME}
+          command: heroku run python manage.py makemigrations --app ${HEROKU_APP_NAME}
+      - run:
+          name: heroku db migrate
+          command: heroku run python manage.py migrate --app ${HEROKU_APP_NAME}
       - run:
           name: heroku maintenance off
           command: heroku maintenance:off --app ${HEROKU_APP_NAME}
