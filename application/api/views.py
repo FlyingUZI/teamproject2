@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.core.exceptions import SuspiciousOperation
 # Create your views here.
 
-VERIFICATION_TOKEN = '***********************'
+# VERIFICATION_TOKEN = '***********************'
 
 
 def test(request):
