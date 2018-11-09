@@ -14,6 +14,6 @@ RUN apk add --no-cache --virtual .build-deps \
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
 #CMD [ "python", "./manage.py", "runserver", "0.0.0.0:8000"]
-CMD pip install websocket-server websocket
-CMD python websocketServer.py
+CMD ls
+CMD python ./websocketServer.py
 CMD gunicorn --bind 0.0.0.0:$PORT application.wsgi
