@@ -6,8 +6,6 @@ from django.http import JsonResponse
 from django.core.exceptions import SuspiciousOperation
 from channels import Group
 # Create your views here.
-import time
-from websocket import create_connection
 # VERIFICATION_TOKEN = '***********************'
 
 
@@ -21,14 +19,14 @@ def test(request):
     return JsonResponse(responseData)
 
 
-def ws(request):
-    ws = create_connection("ws://127.0.0.1:9999/")
-    ws.send("Hello, World")
-    time.sleep(1)
-    result = ws.recv()
-    time.sleep(1)
-    ws.close()
-    return JsonResponse({'result': result})
+# def ws(request):
+#     ws = create_connection("ws://127.0.0.1:9999/")
+#     ws.send("Hello, World")
+#     time.sleep(1)
+#     result = ws.recv()
+#     time.sleep(1)
+#     ws.close()
+#     return JsonResponse({'result': result})
 
 
 def publish(request):
