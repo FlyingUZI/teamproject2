@@ -33,4 +33,4 @@ def publish(request):
     msg = request.GET.get('msg', 'null')
     Group("sample").send({"text": msg})
 
-    return HttpResponse("Published!")
+    return JsonResponse({'msg': msg})
