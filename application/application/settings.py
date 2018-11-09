@@ -152,6 +152,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgiref.inmemory.ChannelLayer",
-        "ROUTING": "sample.routing.channel_routing",
+        "ROUTING": "api.routing.channel_routing",
     },
 }
