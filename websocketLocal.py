@@ -1,7 +1,7 @@
 import time
 from websocket import create_connection
 
-ws = create_connection("ws://flyinguziteamproject:9999/")
+ws = create_connection("ws://127.0.0.1:9999/")
 
 while True:
     ws.send("Hello, World")
