@@ -4,6 +4,7 @@ from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound
 from django.http import JsonResponse
 from django.core.exceptions import SuspiciousOperation
+from channels import Group
 # Create your views here.
 import time
 from websocket import create_connection
@@ -28,3 +29,10 @@ def ws(request):
     time.sleep(1)
     ws.close()
     return JsonResponse({'result': result})
+
+
+def publish(request):
+    msg = request.GET.get('msg', 'null')
+    Group("sample").send({"text": msg})
+
+    return HttpResponse("Published!")

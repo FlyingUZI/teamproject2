@@ -24,7 +24,7 @@ SECRET_KEY = 'b_#dbj+_-^y$r8(39t^mld*hjw50z5uqbjchzbj_**c@nkhxx)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djan5.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['flyinguziteamproject.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -148,3 +148,10 @@ MIDDLEWARE_CLASSES = (
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "sample.routing.channel_routing",
+    },
+}
