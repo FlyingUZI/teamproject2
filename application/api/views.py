@@ -10,6 +10,10 @@ from django.core.exceptions import SuspiciousOperation
 
 
 def test(request):
-    json = serializers.serialize('json', {"description": "\u307b\u3052\u307b\u3052\uff01", "created": "2010-11-17 21:21:01",
-                                          "modified": "2010-11-17 21:21:01", "summary": "\u3042\u305a\u306b\u3083\u3093\uff01", "name": "azunyan"}, ensure_ascii=False)
-    return HttpResponse(json, mimetype='application/json')
+    responseData = {
+        'id': 4,
+        'name': 'Test Response',
+        'roles': ['Admin', 'User']
+    }
+
+    return JsonResponse(responseData)
