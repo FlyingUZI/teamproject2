@@ -10,9 +10,3 @@ RUN apk add --no-cache --virtual .build-deps \
     ca-certificates gcc postgresql-dev linux-headers musl-dev \
     libffi-dev jpeg-dev zlib-dev \
     && pip install -r requirements.txt
-
-# Run the app.  CMD is required to run on Heroku
-# $PORT is set by Heroku
-#CMD [ "python", "./manage.py", "runserver", "0.0.0.0:8000"]
-#CMD python ./websocketServer.py
-CMD gunicorn --bind 0.0.0.0:$PORT application.wsgi

@@ -1,18 +1,12 @@
-version: "3"
+version: '3'
 
 services:
-  db:
-    image: postgres
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./postgresql-data:/var/lib/postgresql/data
-  web:
-    build: .
-    command: python3 application/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/application
-    ports:
-      - "8000:8000"
+  apache:
+    image: apache:alpine
     depends_on:
-      - db
+      - web
+  web:
+    image: ergofriend/teamproject2
+    expose:
+      - '8001'
+    command: bash -c "gunicorn my_docker_project.wsgi -b 0.0.0.0:8001"
