@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from django.core.exceptions import SuspiciousOperation
 from channels import Group
 # Create your views here.
+import urllib
+import urllib.request
 # VERIFICATION_TOKEN = '***********************'
 
 
@@ -19,14 +21,15 @@ def test(request):
     return JsonResponse(responseData)
 
 
-# def ws(request):
-#     ws = create_connection("ws://127.0.0.1:9999/")
-#     ws.send("Hello, World")
-#     time.sleep(1)
-#     result = ws.recv()
-#     time.sleep(1)
-#     ws.close()
-#     return JsonResponse({'result': result})
+def open(request):
+    url = ' http://35.236.39.253/api/publish/?msg=open'
+    req = urllib.request.Request(url=url)
+    urllib.request.urlopen(req)
+    return JsonResponse({'msg': 'send open'})
+
+
+def opend(request):
+    return JsonResponse({'msg': 'door opend'})
 
 
 def publish(request):
