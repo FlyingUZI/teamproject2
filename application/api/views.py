@@ -9,28 +9,27 @@ from channels import Group
 import urllib
 import urllib.request
 
-# VERIFICATION_TOKEN = '***********************'
+VERIFICATION_TOKEN = '8OuNRs5pasB91tPkQxUJGxvw'
 
 
 def test(request):
-    responseData = {
-        'id': 4,
-        'name': 'Test Response',
-        'roles': ['Admin', 'User']
-    }
+    responseData = {'text': 'got test'}
 
     return JsonResponse(responseData)
 
 
 def open(request):
+    if request.POST.get('token') != VERIFICATION_TOKEN:
+        raise SuspiciousOperation('Invalid request.')
+
     url = 'http://35.236.39.253/api/publish/?msg=open'
     req = urllib.request.Request(url=url)
     urllib.request.urlopen(req)
-    return JsonResponse({'msg': 'send open'})
+    return JsonResponse({'text': 'got request'})
 
 
 def opend(request):
-    return JsonResponse({'msg': 'door opend'})
+    return JsonResponse({'text': 'door opend'})
 
 
 def publish(request):
