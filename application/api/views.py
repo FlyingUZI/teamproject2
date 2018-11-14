@@ -8,6 +8,7 @@ from channels import Group
 # Create your views here.
 import urllib
 import urllib.request
+
 # VERIFICATION_TOKEN = '***********************'
 
 
@@ -22,7 +23,7 @@ def test(request):
 
 
 def open(request):
-    url = ' http://35.236.39.253/api/publish/?msg=open'
+    url = 'http://35.236.39.253/api/publish/?msg=open'
     req = urllib.request.Request(url=url)
     urllib.request.urlopen(req)
     return JsonResponse({'msg': 'send open'})
