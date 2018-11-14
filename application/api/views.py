@@ -28,8 +28,8 @@ def open(request):
     return JsonResponse({'text': 'got request'})
 
 
-def opend(request):
-    return JsonResponse({'text': 'door opend'})
+def opened(request):
+    return JsonResponse({'text': 'door opened'})
 
 
 def publish(request):
