@@ -1,6 +1,8 @@
 # teamproject2
 
-[![Docker Build Status](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)](ergofriend/teamproject2)
+## scraping file
+
+docs/websocketLocal.py
 
 ## Development
 
