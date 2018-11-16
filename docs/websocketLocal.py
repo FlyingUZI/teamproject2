@@ -1,13 +1,29 @@
-import time
-from websocket import create_connection
+import time  #time
 
-ws = create_connection("ws://127.0.0.1:9999/")
+from websocket import create_connection  #websocket
 
-while True:
-    ws.send("Hello, World")
+#scraping
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from selenium.webdriver.support.ui import Select
+
+#ws = create_connection("ws://35.236.39.253:80/ws")
+#result = None
+
+while (1):
+    ws = create_connection("ws://35.236.39.253:80/ws")
+    result = None
+    #contnue return
+    while (result != "open"):
+        result = ws.recv()
+        time.sleep(1)
+        print("test")
+
+    #ws.send("Opened")
     time.sleep(1)
-    result = ws.recv()
-    print("Received '%s'" % result)
-    time.sleep(1)
-
-ws.close()
+    ws.close()
+    continue
