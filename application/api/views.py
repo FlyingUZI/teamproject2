@@ -29,6 +29,9 @@ def open(request):
 
 
 def opened(request):
+    url = 'http://35.236.39.253/api/publish/?msg=opened'
+    req = urllib.request.Request(url=url)
+    urllib.request.urlopen(req)
     return JsonResponse({'text': 'door opened'})
 
 
