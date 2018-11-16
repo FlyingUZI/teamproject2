@@ -19,8 +19,8 @@ def test(request):
 
 
 def open(request):
-    if request.POST.get('token') != VERIFICATION_TOKEN:
-        raise SuspiciousOperation('Invalid request.')
+    # if request.POST.get('token') != VERIFICATION_TOKEN:
+    #     raise SuspiciousOperation('Invalid request.')
 
     url = 'http://35.236.39.253/api/publish/?msg=open'
     req = urllib.request.Request(url=url)
