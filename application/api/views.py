@@ -4,7 +4,7 @@ from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound
 from django.http import JsonResponse
 from django.core.exceptions import SuspiciousOperation
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
 from channels import Group
 # Create your views here.
 import urllib
@@ -19,7 +19,7 @@ def test(request):
     return JsonResponse(responseData)
 
 
-@csrf_protect
+@csrf_exempt
 def open(request):
     # if request.POST.get('token') != VERIFICATION_TOKEN:
     #     raise SuspiciousOperation('Invalid request.')
